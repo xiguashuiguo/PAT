@@ -19,4 +19,7 @@ if (data[-1] == -1):
 out = ""
 for i in data:
     out += str(i) + " "
-print(out.rstrip())
+if (out == ""):
+    print("0 0")
+else:
+    print(out.rstrip())
