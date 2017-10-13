@@ -19,25 +19,19 @@ def su(n):
     return True
 
 
-adder = 1
-
-
-# count_su=0
 def su_creat():
-    global adder
-    # global count_su
+    adder = 1
     while True:
         adder += 2
         if su(adder):
-            # count_su+=1
-            return adder
+            yield adder
 
 
 # 素数循环生成器-未来考虑做一个可迭代对象、类
-
-content = [2, su_creat()]
+f = su_creat()
+content = [2]
 while len(content) < max(m, n):
-    content.append(su_creat())
+    content.append(next(f))
 
 # 得到前max(m,n)个素数
 content = content[min(m, n) - 1:max(m, n)]
